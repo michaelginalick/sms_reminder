@@ -1,8 +1,9 @@
 class SessionController < ApplicationController
 
+	skip_before_filter :verify_authenticity_token
 
 	def login
-	@user = get_user(params[:user])
+	@user = User.find_by_email(user_params[:email])
 		 if @user && @user.authenticate(params[:user][:password])
 		 	session[:user_id] = @user.id
 		 	redirect_to user_path(@user.id)
@@ -15,14 +16,14 @@ class SessionController < ApplicationController
 
 	def logout
 		session.clear
-		flash[:notice] = "See you next time"
+		flash[:notice] = "See you next time!"
 		redirect_to root_path
 	end
 
 	protected
 
-	def get_user(user_params)
-		User.find_by(email: user_params[:email])
+	def user_params
+		params.require(:user).permit(:email, :password)
 	end
 
 

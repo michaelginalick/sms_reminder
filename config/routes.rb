@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  resources :user
-  resource :verifications
   root to: 'user#index'
-
-  resources :session
+  resources :user
   #sessions routes
   post '/session/login' => 'session#login'
   get '/session/logout' => 'session#logout', :as => 'logout'

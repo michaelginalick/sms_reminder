@@ -5,7 +5,6 @@
 	      <ul >
 	          <%= form_for(:user, :url => {:controller => 'session', :action => 'login'}) do |f|%>
 	            <li><%= f.email_field :email, :size => 70, placeholder: 'Email' %></li>
-	            <li><%= f.phone_field :email, :size => 70, placeholder: 'Phone' %></li>
 	            <li><%= f.password_field :password, :size => 70, placeholder: 'Password' %></li>
 		            <% flash.each do |name, msg| %>
 		              <%= content_tag :div, msg, class: name %>
@@ -21,8 +20,9 @@
 	<div class="signup">
 	      <ul >
 	        <%= form_for(:user, :url => {:controller => 'user', :action => 'create'}) do |f|%>
-	          <li><%= f.text_field :name, :size => 70, placeholder: 'Full Name' %></li>
+	          <li><%= f.text_field :name, :size => 70, placeholder: 'Name' %></li>
 	          <li><%= f.email_field :email, :size => 70, placeholder: 'Email' %></li>
+	          <li><%= f.phone_field :phone, :size => 70, placeholder: 'Phone' %></li>
 	          <li><%= f.password_field :password, :size => 70, placeholder: 'Password' %></li>
 	          <li><%= f.password_field :password_confirmation, :size => 70, placeholder: 'Confim Password' %></li>
 	          <button class="btn btn-primary btn-block" id="signup_enter">Sign up</button>
