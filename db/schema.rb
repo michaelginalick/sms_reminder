@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20140925194057) do
     t.string   "name"
     t.string   "email"
     t.string   "phone"
+    t.string   "password"
+    t.string   "pasword_digest"
     t.boolean  "verified"
     t.datetime "created_at"
     t.datetime "updated_at"

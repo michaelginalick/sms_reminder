@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   resources :user
   resource :verifications
-  root to: 'user#new'
+  root to: 'user#index'
+
+  resources :session
+  #sessions routes
+  post '/session/login' => 'session#login'
+  get '/session/logout' => 'session#logout', :as => 'logout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

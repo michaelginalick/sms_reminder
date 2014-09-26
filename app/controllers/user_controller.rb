@@ -1,4 +1,5 @@
 require 'twilio-ruby'
+
 class UserController < ApplicationController
 	skip_before_filter :verify_authenticity_token
 
