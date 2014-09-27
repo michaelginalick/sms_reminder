@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SmsApp</title>
+  <title>SkeletonWithFoundation</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "vendor/modernizr" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class = "top-nav">
-		<% if logged_in? %>
-		<a href="/session/logout"><p>Logout</p></a>
-		<%end%>
-<%= yield %>
+
+	<p class="flash"><%= flash.notice %></p>
+	<%= yield %>
 
 </body>
 </html>
