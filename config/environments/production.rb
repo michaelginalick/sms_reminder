@@ -32,9 +32,6 @@ Rails.application.configure do
   # Generate digests for assets URLs.
   config.assets.digest = true
 
-  #Add Modernizr to precompiled assets for production (foundation)
-  config.assets.precompile += %w( vendor/modernizr.js )
-
   # `config.assets.precompile` has moved to config/initializers/assets.rb
 
   # Specifies the header that your server uses for sending files.
