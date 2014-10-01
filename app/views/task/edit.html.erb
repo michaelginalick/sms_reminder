@@ -1,0 +1,24 @@
+<p>This is the edit for <%=@task.title%></p>
+
+<%= form_for :user_task, url: user_task_path(@user,@task), method: :patch do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </p>
+
+  <p>
+    <%= f.label :due_date %><br>
+    <%= f.date_field :due_date, required: true %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', user_path(@user) %>

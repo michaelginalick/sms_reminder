@@ -1,0 +1,21 @@
+<p>This is the show page for <%=@task.title%></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @task.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @task.content %>
+</p>
+
+<p>
+	<strong>Due Date:</strong>
+	<%= @task.due_date %>
+
+</p>
+
+
+<%= link_to 'Back', user_path%>
+

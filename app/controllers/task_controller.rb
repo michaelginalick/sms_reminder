@@ -25,25 +25,33 @@ class TaskController < ApplicationController
 	end
 
 	def show
-		@task = Task.find_by(:task_id)
+		#@user = User.find(session[:user_id])
+		@task = Task.find(params[:id])
 	end
 
 	def edit
+		@user = User.find(session[:user_id])
+		@task = Task.find(params[:id])
 	end
 
 	def update
-		@user = User.find(session[:user_id])
-		@user.tasks
+		@user = User.find(params[:user_id])
+		@task = Task.find(params[:id])
+
+		if @task.update(update_params)
+			redirect_to user_path(@user)
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
 		@task = Task.find(params[:id])
 
-		if @task.destroy
-			respond_to do |f|
-				f.json {render json: true}
-			end
-		end
+		@task.destroy
+			
+	
+		redirect_to user_path
 	end
 
 
@@ -53,6 +61,10 @@ class TaskController < ApplicationController
 
 	def task_params
 		params.require(:task).permit(:user_id, :title, :content, :due_date)
+	end
+
+	def update_params
+		params.require(:user_task).permit(:user_id, :title, :content, :due_date)
 	end
 
 
