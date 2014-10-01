@@ -1,1 +1,11 @@
 <p>Hello, <%=current_user.username%></p>
+
+<div>
+
+	<% @tasks.each do |task| %>
+	<li> <%= task.title.capitalize %>   </li>
+	<%end%>
+
+</div>
+
+<%= link_to 'New task', new_user_task_path(@user)%>

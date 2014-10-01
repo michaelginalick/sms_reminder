@@ -1,0 +1,25 @@
+<h1>New task for <%=current_user.username%></h1>
+
+<%= form_for @task, url:{action: "create"} do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </p>
+
+  <p>
+    <%= f.label :due_date %><br>
+    <%= f.date_field :due_date, required: true %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', user_path(@user) %>
+

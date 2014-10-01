@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   post '/session/login' => 'session#login'
   get '/session/logout' => 'session#logout', :as => 'logout'
 
-  resources :users do 
-    resources :tasks
+  resources :user do 
+    resources :task
   end
 
   # Example of regular route:
