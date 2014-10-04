@@ -14,20 +14,22 @@ def self.find_due_date_send_text
 	a    = User.find(user)
 	a.phone
 
-	if date == task.due_date.to_date
-	#call method that instantiates twilio client
-	 sid = 'AC015b2287604a70f0e13bb96bc2179f59'
-     token = '4e93d70cf30464dd672d2aac869938ea'
-#  # Instantiate a Twilio client
-     client = Twilio::REST::Client.new(sid, token)
-     from = '+113144417029'
-     # Create and send an SMS message
-      client.account.messages.create(
-      	 :from => from,
-      	 :to => a.phone,
-      	 :body => "Have you completed #{task.title}?"
-    )
-    end
+	 	if date == task.due_date.to_date
+		#call method that instantiates twilio client
+		 sid = 'AC015b2287604a70f0e13bb96bc2179f59'
+	     token = '4e93d70cf30464dd672d2aac869938ea'
+
+	   # Instantiate a Twilio client
+	     client = Twilio::REST::Client.new(sid, token)
+	     from = '+113144417029'
+
+	     # Create and send an SMS message
+	      client.account.messages.create(
+	      	 :from => from,
+	      	 :to => a.phone,
+	      	 :body => "Have you completed #{task.title}?"
+	    )
+	    end
   end
 end
 

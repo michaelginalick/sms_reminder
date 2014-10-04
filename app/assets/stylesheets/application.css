@@ -12,4 +12,21 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation
  */
+
+.sign-in{
+	margin-top: 50px;
+
+}
+
+.sign-up {
+	position: relative;
+	margin-top: 100px
+
+}
+
+.signupbutton{
+	margin-left: 10px;
+	
+}
