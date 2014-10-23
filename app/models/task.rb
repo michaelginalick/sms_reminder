@@ -1,10 +1,10 @@
 require 'Date'
 class Task < ActiveRecord::Base
-belongs_to :user
+	belongs_to :user
 
 
 
-def self.find_due_date_send_text
+def find_due_date_send_text
 	date = DateTime.now.to_date
 	tasks = Task.all
 
@@ -15,11 +15,11 @@ def self.find_due_date_send_text
 	a.phone
 
 	 	if date == task.due_date.to_date
-		#call method that instantiates twilio client
+		 #call method that instantiates twilio client
 		 sid = 'AC015b2287604a70f0e13bb96bc2179f59'
 	     token = '4e93d70cf30464dd672d2aac869938ea'
 
-	   # Instantiate a Twilio client
+	     # Instantiate a Twilio client
 	     client = Twilio::REST::Client.new(sid, token)
 	     from = '+113144417029'
 
@@ -30,7 +30,7 @@ def self.find_due_date_send_text
 	      	 :body => "Have you completed #{task.title}?"
 	    )
 	    end
-  end
+    end
 end
 
 
